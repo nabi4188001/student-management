@@ -90,4 +90,23 @@ public class StudentManagementSystem {
             }
         }
     }
+
+    private static void addStudent(Scanner scanner) {
+        System.out.print("Enter student name: ");
+        String name = scanner.nextLine();
+
+        if (!name.matches("[a-zA-Z]+")) {
+            System.out.println("Error: Student name must contain only letters.");
+            return;
+        }
+
+        if (students.containsKey(name)) {
+            System.out.println("Error: Student with this name already exists.");
+        } else {
+            students.put(name, new Student(name));
+            System.out.println("Student " + name + " added successfully.");
+        }
+    }
+
+
 }
