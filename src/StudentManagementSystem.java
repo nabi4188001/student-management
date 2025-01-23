@@ -74,5 +74,20 @@ public class StudentManagementSystem {
         System.out.println("5. Exit");
         System.out.print("Choose an option: ");
     }
-
+    private static int getChoice(Scanner scanner) {
+        int choice;
+        while (true) {
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+                if (choice < 1 || choice > 5) {
+                    throw new IllegalArgumentException("Choice must be between 1 and 5.");
+                }
+                return choice;
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid input. Please enter a number between 1 and 5: ");
+            } catch (IllegalArgumentException e) {
+                System.out.print(e.getMessage() + " Please try again: ");
+            }
+        }
+    }
 }
