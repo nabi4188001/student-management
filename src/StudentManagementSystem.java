@@ -138,5 +138,18 @@ public class StudentManagementSystem {
             }
         }
     }
+    private static void viewStudentDetails(Scanner scanner) {
+        System.out.print("Enter student name: ");
+        String name = scanner.nextLine();
+
+        Student student = students.get(name);
+        if (student == null) {
+            System.out.println("Error: Student not found.");
+        } else {
+            System.out.println("Student: " + student.name);
+            System.out.println("Grades: " + student.getGrades());
+            System.out.println("Average Grade: " + student.getAverageGrade());
+        }
+    }
 
 }
