@@ -108,5 +108,35 @@ public class StudentManagementSystem {
         }
     }
 
+    private static void recordGrade(Scanner scanner) {
+        System.out.print("Enter student name: ");
+        String name = scanner.nextLine();
+
+        if (!students.containsKey(name)) {
+            System.out.println("Error: Student not found.");
+            return;
+        }
+
+        Student student = students.get(name);
+        while (true) {
+            System.out.print("Enter grade (or type 'done' to stop): ");
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("done")) {
+                break;
+            }
+
+            try {
+                int grade = Integer.parseInt(input);
+                if (grade < 0 || grade > 100) {
+                    System.out.println("Grade must be between 0 and 100.");
+                } else {
+                    student.addGrade(grade);
+                    System.out.println("Grade recorded.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid grade. Please enter a numeric value.");
+            }
+        }
+    }
 
 }
