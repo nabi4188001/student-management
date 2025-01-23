@@ -151,5 +151,29 @@ public class StudentManagementSystem {
             System.out.println("Average Grade: " + student.getAverageGrade());
         }
     }
+    private static void viewHighPerformingStudents(Scanner scanner) {
+        System.out.print("Enter grade threshold: ");
+        double threshold;
+        while (true) {
+            try {
+                threshold = Double.parseDouble(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid input. Please enter a numeric value: ");
+            }
+        }
 
+        System.out.println("Students with average grade above " + threshold + ":");
+        boolean found = false;
+        for (Student student : students.values()) {
+            if (student.getAverageGrade() > threshold) {
+                System.out.println(student.name + " - Average Grade: " + student.getAverageGrade());
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No students found with average grade above " + threshold);
+        }
+    }
 }
