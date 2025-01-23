@@ -32,3 +32,36 @@ public class StudentManagementSystem {
         }
     }
 
+    private static Map<String, Student> students = new HashMap<>();
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean running = true;
+
+        while (running) {
+            showMenu();
+            int choice = getChoice(scanner);
+
+            switch (choice) {
+                case 1:
+                    addStudent(scanner);
+                    break;
+                case 2:
+                    recordGrade(scanner);
+                    break;
+                case 3:
+                    viewStudentDetails(scanner);
+                    break;
+                case 4:
+                    viewHighPerformingStudents(scanner);
+                    break;
+                case 5:
+                    System.out.println("Exiting...");
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+}
