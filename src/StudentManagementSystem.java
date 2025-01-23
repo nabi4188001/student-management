@@ -64,4 +64,15 @@ public class StudentManagementSystem {
             }
         }
     }
+
+    private static void showMenu() {
+        System.out.println("\nStudent Management System");
+        System.out.println("1. Add Student");
+        System.out.println("2. Record Grade");
+        System.out.println("3. View Student Details");
+        System.out.println("4. View High-Performing Students");
+        System.out.println("5. Exit");
+        System.out.print("Choose an option: ");
+    }
+
 }
